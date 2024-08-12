@@ -1,4 +1,4 @@
-package global.goit.edu;
+package global.goit.edu.fibonacci;
 
 import java.util.HashMap;
 import java.util.Map;

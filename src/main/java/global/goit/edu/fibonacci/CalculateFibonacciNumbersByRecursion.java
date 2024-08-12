@@ -1,4 +1,4 @@
-package global.goit.edu;
+package global.goit.edu.fibonacci;
 
 public class CalculateFibonacciNumbersByRecursion implements FibonacciNumbers {
 
