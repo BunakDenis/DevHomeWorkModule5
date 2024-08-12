@@ -1,0 +1,27 @@
+@startuml
+
+[*] --> CalculateFibonacciNumbersByRecursion
+
+state "CalculateFibonacciNumbersByRecursion.calculate" as CalculateFibonacciNumbersByRecursion
+
+state "if (number == 0)" as statement1
+state "if (number == 1)" as statement2
+state "if (number > 0)" as statement3
+statement3 : result = calculate(number - 1) + calculate(number - 2);
+
+CalculateFibonacciNumbersByRecursion  --> statement1
+CalculateFibonacciNumbersByRecursion  --> statement2
+CalculateFibonacciNumbersByRecursion  --> statement3
+statement3 --> CalculateFibonacciNumbersByRecursion
+
+
+note left of CalculateFibonacciNumbersByRecursion
+Часова складність ітераційного метода - О(2^n)
+Просторова складність ітераційного метода - О(2^n)
+end note
+
+statement1 --> [*] : result = 0
+statement2 --> [*] : result = 1
+CalculateFibonacciNumbersByRecursion --> [*] : result
+
+@enduml

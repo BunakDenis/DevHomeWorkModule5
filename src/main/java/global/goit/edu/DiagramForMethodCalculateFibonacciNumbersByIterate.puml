@@ -1,0 +1,23 @@
+@startuml
+
+[*] --> CalculateFibonacciNumbersByIterate
+state "CalculateFibonacciNumbersByIterate.calculate" as CalculateFibonacciNumbersByIterate
+state "if (number == 0)" as statement1
+state "if (number == 1)" as statement2
+state "for (int i = 1; i < number; i++)" as statement3
+statement3 : num3 = num1 + num2;\nnum1 = num2;\nnum2 = num3;\nnum3 = result
+CalculateFibonacciNumbersByIterate --> statement1
+CalculateFibonacciNumbersByIterate --> statement2
+CalculateFibonacciNumbersByIterate --> statement3
+
+
+note left of CalculateFibonacciNumbersByIterate
+Часова складність ітераційного метода - О(n)
+Просторова складність ітераційного метода - О(1)
+end note
+
+statement1 --> [*] : result = 0
+statement2 --> [*] : result = 1
+statement3 --> [*] : result
+
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+
+[*] --> CalculateFibonacciNumbersByDynamicProgramming
+
+state "CalculateFibonacciNumbersByDynamicProgramming.calculate" as CalculateFibonacciNumbersByDynamicProgramming
+
+state "if (number == 0)" as statement1
+state "if (number == 1)" as statement2
+state "if (memo.containsKey(number))" as statement3
+state Recursion
+Recursion : result = calculate(number - 2) + calculate(number - 1);\nmemo.put(number, result);
+
+CalculateFibonacciNumbersByDynamicProgramming  --> statement1
+CalculateFibonacciNumbersByDynamicProgramming  --> statement2
+CalculateFibonacciNumbersByDynamicProgramming  --> statement3
+CalculateFibonacciNumbersByDynamicProgramming  --> Recursion
+Recursion --> CalculateFibonacciNumbersByDynamicProgramming
+
+
+note left of CalculateFibonacciNumbersByDynamicProgramming
+Часова складність ітераційного метода - О(2^n)
+Просторова складність ітераційного метода - О(n)
+end note
+
+statement1 --> [*] : result = 0
+statement2 --> [*] : result = 1
+statement3 --> [*] : return memo.get(number)
+
+
+@enduml
